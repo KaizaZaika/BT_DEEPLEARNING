@@ -55,9 +55,9 @@ docker-compose up -d --build
 Once the containers are running, you need to pull the models into the Ollama container. Run these commands one by one (this might take some time depending on your internet connection):
 
 ```bash
-docker exec -it ollama_backend ollama pull yi-coder:latest
-docker exec -it ollama_backend ollama pull qwen2.5-coder:latest
-docker exec -it ollama_backend ollama pull llama3.2:latest
+docker exec -it ollama_backend ollama pull yi-coder:1.5b
+docker exec -it ollama_backend ollama pull qwen2.5-coder:1.5b
+docker exec -it ollama_backend ollama pull llama3.2:1b
 ```
 
 > **Note:** If you encounter any issues with model downloads, try pulling the models first with `ollama pull <model-name>` on your host machine.
@@ -91,9 +91,9 @@ pip install -r requirements.txt
 
 ### Pull Models (via Ollama):
 ```bash
-ollama pull yi-coder:latest
-ollama pull qwen2.5-coder:latest
-ollama pull llama3.2:latest
+ollama pull yi-coder:1.5b
+ollama pull qwen2.5-coder:1.5b
+ollama pull llama3.2:1b
 ```
 
 ### Run the App:
