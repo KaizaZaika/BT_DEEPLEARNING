@@ -29,23 +29,32 @@ The tool enables users to compare the **bug detection capabilities** (Logic, Syn
 
 This is the fastest way to run the project without manually installing Python or Ollama.
 
-### Step 1: Start Services
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/BT_DEEPLEARNING.git
+cd BT_DEEPLEARNING
+```
+
+### Step 2: Start Services
 Open your terminal in the project directory and run:
 
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
-### Step 2: Download AI Models (First time only)
-Once the containers are running, you need to pull the models into the Ollama container. Run these commands one by one:
+### Step 3: Download AI Models (First time only)
+Once the containers are running, you need to pull the models into the Ollama container. Run these commands one by one (this might take some time depending on your internet connection):
 
 ```bash
-docker exec -it ollama_backend ollama pull yi-coder:1.5b
-docker exec -it ollama_backend ollama pull qwen2.5-coder:1.5b
-docker exec -it ollama_backend ollama pull llama3.2:1b
+docker exec -it ollama_backend ollama pull yi-coder:latest
+docker exec -it ollama_backend ollama pull qwen2.5-coder:latest
+docker exec -it ollama_backend ollama pull llama3.2:latest
 ```
 
-### Step 3: Access the App
+> **Note:** If you encounter any issues with model downloads, try pulling the models first with `ollama pull <model-name>` on your host machine.
+
+### Step 4: Access the App
 Open your browser and navigate to: 👉 http://localhost:8501
 
 ## 💻 Manual Installation (No Docker)
@@ -57,11 +66,14 @@ If you prefer running it directly on your machine (requires Python 3.8+ and Olla
 pip install -r requirements.txt
 ```
 
+### Install Ollama
+Download and install Ollama from [ollama.ai](https://ollama.ai/)
+
 ### Pull Models (via Ollama):
 ```bash
-ollama pull yi-coder:1.5b
-ollama pull qwen2.5-coder:1.5b
-ollama pull llama3.2:1b
+ollama pull yi-coder:latest
+ollama pull qwen2.5-coder:latest
+ollama pull llama3.2:latest
 ```
 
 ### Run the App:
@@ -83,9 +95,16 @@ The project utilizes a Hardcoded Test Suite (embedded in app.py and benchmark_no
 ```
 .
 ├── app.py                   # Main Application (Streamlit)
-├── benchmark_notebook.ipynb # Jupyter Notebook for in-depth analysis
+├── .dockerignore            # Files to exclude from Docker build
 ├── docker-compose.yml       # Docker services orchestration
 ├── Dockerfile               # Docker build instructions for the App
 ├── requirements.txt         # Python dependencies
 └── README.md                # Documentation
 ```
+
+## 🌟 Features in Development
+
+- [ ] Support for more programming languages
+- [ ] Additional test cases for security vulnerabilities
+- [ ] Model performance comparison dashboard
+- [ ] Custom model fine-tuning support
