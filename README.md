@@ -40,7 +40,7 @@ This is the fastest way to run the project without manually installing Python or
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/BT_DEEPLEARNING.git
+git clone https://github.com/KaizaZaika/BT_DEEPLEARNING.git
 cd BT_DEEPLEARNING
 ```
 
