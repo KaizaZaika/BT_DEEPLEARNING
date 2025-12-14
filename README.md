@@ -2,6 +2,14 @@
 
 This project is a **Source Code Analysis and Performance Benchmarking Tool** leveraging Large Language Models (LLMs) running entirely offline (localhost).
 
+## 🚀 Prerequisites
+
+- Docker and Docker Compose
+- Git
+- Python 3.9+ (for local development without Docker)
+- Ollama (for local development without Docker)
+- At least 8GB RAM (16GB recommended for better performance)
+
 The tool enables users to compare the **bug detection capabilities** (Logic, Syntax, Security) and **processing speed** of lightweight models such as **Yi-Coder**, **Qwen2.5-Coder**, and **Llama 3.2**.
 
 ---
@@ -63,11 +71,23 @@ If you prefer running it directly on your machine (requires Python 3.8+ and Olla
 
 ### Install Python Dependencies:
 ```bash
+# Create and activate a virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
 ### Install Ollama
-Download and install Ollama from [ollama.ai](https://ollama.ai/)
+1. Download and install Ollama from [ollama.ai](https://ollama.ai/)
+2. Start the Ollama service:
+   ```bash
+   # On Linux/macOS
+   ollama serve
+   
+   # On Windows, the service starts automatically after installation
+   ```
 
 ### Pull Models (via Ollama):
 ```bash
@@ -99,7 +119,8 @@ The project utilizes a Hardcoded Test Suite (embedded in app.py and benchmark_no
 ├── docker-compose.yml       # Docker services orchestration
 ├── Dockerfile               # Docker build instructions for the App
 ├── requirements.txt         # Python dependencies
-└── README.md                # Documentation
+├── README.md                # Documentation
+└── .gitignore              # Git ignore file
 ```
 
 ## 🌟 Features in Development
